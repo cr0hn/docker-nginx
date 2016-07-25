@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # App path exits?
 if [ ! -d "/nginx" ]; then
@@ -7,7 +7,7 @@ if [ ! -d "/nginx" ]; then
 fi
 
 # App path exits?
-if [ ! -d "/nginx/app.conf" ]; then
+if [ ! -f "/nginx/app.conf" ]; then
     echo "/nginx/app.conf dir not exits. Please mount or create it"
     exit 1
 fi
@@ -16,4 +16,4 @@ fi
 cp /nginx/app.conf /etc/nginx/conf.d/app.conf
 
 # Run nginx
-nginx -g daemon off
+nginx -g "daemon off"
