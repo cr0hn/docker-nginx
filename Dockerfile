@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
+MAINTAINER Daniel Garcia - cr0hn -  "cr0hn@cr0hn.com"
 
 ENV NGINX_VERSION 1.11.2
 
@@ -117,6 +117,7 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
 	&& ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
 
+COPY entrypoint.sh /usr/bin
 COPY error_pages/* /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY custom-errors.conf /etc/nginx/custom-errors.conf
@@ -124,7 +125,9 @@ COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 
 RUN chmod -R 755 /usr/share/nginx/html
 RUN chown -R nginx:nginx /usr/share/nginx/html
+RUN chmod +x /usr/bin/entrypoint.sh
 
 EXPOSE 80 443
 
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT
