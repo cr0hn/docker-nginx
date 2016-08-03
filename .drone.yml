@@ -1,0 +1,9 @@
+publish:
+  docker:
+      username: $$REGISTRY_DOCKER_USER
+      password: $$REGISTRY_DOCKER_PASS
+      email: $$REGISTRY_DOCKER_MAIL
+      repo: cr0hn/docker-nginx
+      tag: latest
+      file: Dockerfile
+      insecure: false

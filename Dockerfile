@@ -129,5 +129,4 @@ RUN chmod +x /usr/bin/entrypoint.sh
 
 EXPOSE 80 443
 
-#CMD ["nginx", "-g", "daemon off;"]
 ENTRYPOINT /usr/bin/entrypoint.sh
