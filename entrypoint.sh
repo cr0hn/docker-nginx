@@ -7,7 +7,7 @@ if [ ! -d "/nginx" ]; then
 fi
 
 # Copy nginx app config
-cp /nginx/*.conf /etc/nginx/conf.d/*
+cp /nginx/*.conf /etc/nginx/conf.d/
 
 # Run nginx
 nginx -g "daemon off;"
